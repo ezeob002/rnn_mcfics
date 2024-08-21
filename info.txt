@@ -1,0 +1,1 @@
+python -m grammar_ics -pj new_pj -hs 127.0.0.1 -p 2404 --fuzzer RNNFuzzer --name iec104 --pcap grammar_ics/data/iec104/ --seed 12345 --restart afl_fork "./grammar_ics/c_SUT/cs104_server_no_threads" --budget 1000000
