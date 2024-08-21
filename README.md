@@ -59,7 +59,8 @@ optional arguments:
                         project to create
   -hs HOST, --host HOST
                         target host
-  -p PORT, --port PORT  target port
+  -p PORT, --port   fuzzing target port
+  "-fp",   --Fport  file processing target port
 
 Connection options:
   -pt {tcp,udp,tcp+tls}, --protocol {tcp,udp,tcp+tls}
@@ -70,7 +71,7 @@ Connection options:
                         recv() timeout
 
 Fuzzer options:
-  --fuzzer {MIFuzzer}   application layer fuzzer
+  --fuzzer {RNNFuzzer}   application layer fuzzer
   --name NAME           Name of the protocol you are fuzzing
   --debug               enable debug.csv
   --pcap PCAP           example communicaion between client and server
@@ -91,10 +92,10 @@ Restart options:
 **Run the example server for IEC104**
 ```bash
 cd <path-mcfics>
-python -m FMI -pj new_project -hs 127.0.0.1 -p 2404 -pt tcp --fuzzer MIFuzzer --name iec104 --pcap FMI/data/iec104/combined.pcap --seed 123456 --restart afl_fork "./FMI/c_SUT/cs104_server_no_threads"  --budget 10000000
+python -m grammar_ics -pj new_project -hs 127.0.0.1 -p 2404 -fp 2404 --fuzzer RNNFuzzer --name iec104 --pcap FMI/data/iec104/ --seed 123456 --restart afl_fork "./grammar_ics/c_SUT/cs104_server_no_threads"  --budget 10000000
 ```
 
-## Paper Published from this Repo
+## Extension of this Paper
 
 * MCFICS: Model-based Coverage-guided Fuzzing for Industrial Control System Protocol Implementations
 
@@ -107,9 +108,8 @@ We would like to the following code repository, this project will not be possibl
 * Evolutionary Protocol Fuzzer: [EPF](https://github.com/fkie-cad/epf)
 * Network Protocol Fuzzing for Humans [BooFuzz](https://github.com/jtpereyda/boofuzz)
 * Coverage-guided parallel fuzzer [Manul](https://github.com/mxmssh/manul)
-* Protocol Reverse Engineering, Modeling and Fuzzing [Netzob](https://github.com/netzob/netzob/tree/master)
 ## Owner of Repo 
 
-* **Uchenna Ezeobi** (uezeobi@uccs.edu, uchenna.ezeobi3@gmail.com)
+* **Uchenna Ezeobi** (uezeobi@uccs.edu, uezeobi3@gmail.com)
 * **Dr. Gedare Bloom** (gbloom@uccs.edu)
 
